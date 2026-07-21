@@ -1,36 +1,207 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Simulador Inteligente de Evaluación de Competencias - Universidad Corporativa Claro
 
-## Getting Started
+Aplicación web desarrollada como prueba técnica para la Universidad Corporativa Claro.
 
-First, run the development server:
+El proyecto permite registrar aprendices, asignar competencias y evaluar respuestas abiertas mediante Inteligencia Artificial utilizando Google Gemini.
+
+---
+
+## Objetivo
+
+Desarrollar una aplicación que simule el proceso de evaluación de competencias de un aprendiz mediante Inteligencia Artificial, proporcionando retroalimentación automática, indicadores de desempeño e historial de evaluaciones.
+
+---
+
+## Tecnologías utilizadas
+
+- Next.js 15
+- React
+- TypeScript
+- Tailwind CSS
+- Google Gemini API
+- Context API
+- LocalStorage
+
+---
+
+## Funcionalidades
+
+Actualmente la aplicación permite:
+
+- Registrar un aprendiz.
+- Registrar una o varias competencias.
+- Seleccionar la competencia que será evaluada.
+- Enviar respuestas abiertas para ser evaluadas mediante Google Gemini.
+- Obtener una calificación automática (0 a 100).
+- Recibir retroalimentación inteligente.
+- Visualizar fortalezas y áreas de mejora.
+- Consultar un historial de evaluaciones.
+- Visualizar un Dashboard con el avance por competencias.
+
+---
+
+## Arquitectura del Proyecto
+
+El proyecto fue desarrollado utilizando una arquitectura basada en componentes, separando la lógica de negocio, la interfaz de usuario y la integración con la IA.
+
+```text
+app/
+│
+├── api/
+│   └── evaluate/
+│       └── route.ts         # Comunicación con Google Gemini
+│
+├── components/
+│   ├── Dashboard.tsx
+│   ├── Evaluacion.tsx
+│   ├── Header.tsx
+│   ├── Historial.tsx
+│   └── RegistroForm.tsx
+│
+├── context/
+│   └── UsuarioContext.tsx   # Estado global de la aplicación
+│
+└── page.tsx                 # Página principal
+```
+
+### Componentes principales
+
+| Componente | Responsabilidad |
+|------------|-----------------|
+| RegistroForm | Registro del aprendiz y competencias |
+| Evaluacion | Comunicación con Gemini y evaluación de respuestas |
+| Dashboard | Visualización del desempeño del aprendiz |
+| Historial | Consulta de evaluaciones realizadas |
+| UsuarioContext | Gestión del estado compartido de la aplicación |
+| API Route | Comunicación segura con Google Gemini |
+
+---
+
+# Instalación
+
+## 1. Clonar el repositorio
+
+```bash
+git clone https://github.com/TU-USUARIO/NOMBRE-DEL-REPOSITORIO.git
+```
+
+## 2. Ingresar al proyecto
+
+```bash
+cd NOMBRE-DEL-REPOSITORIO
+```
+
+## 3. Instalar dependencias
+
+```bash
+npm install
+```
+
+## 4. Configurar la API de Google Gemini
+
+Crear un archivo llamado:
+
+```text
+.env.local
+```
+
+Agregar la siguiente variable:
+
+```env
+GOOGLE_AI_KEY=TU_API_KEY
+```
+
+> La API Key puede obtenerse desde Google AI Studio.
+
+## 5. Ejecutar el proyecto
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+La aplicación estará disponible en:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```text
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+# Flujo de uso
 
-To learn more about Next.js, take a look at the following resources:
+1. Registrar el nombre del aprendiz.
+2. Agregar una o varias competencias.
+3. Seleccionar la competencia a evaluar.
+4. Escribir la respuesta del caso práctico.
+5. Enviar la respuesta a Google Gemini.
+6. Visualizar la calificación y retroalimentación.
+7. Consultar el Dashboard.
+8. Revisar el historial de evaluaciones.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+# Variables de entorno
 
-## Deploy on Vercel
+| Variable | Descripción |
+|----------|-------------|
+| GOOGLE_AI_KEY | API Key utilizada para comunicarse con Google Gemini |
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+# Inteligencia Artificial
+
+La aplicación utiliza la API de **Google Gemini** para evaluar respuestas abiertas.
+
+La IA analiza la respuesta enviada por el aprendiz y devuelve:
+
+- Calificación.
+- Retroalimentación.
+- Puntos fuertes.
+- Áreas de mejora.
+
+La comunicación con Gemini se realiza mediante una API Route de Next.js para proteger la clave de acceso y centralizar la lógica de evaluación.
+
+---
+
+# Mejoras futuras
+
+Durante el desarrollo se priorizó la implementación de los requisitos funcionales principales establecidos para la prueba técnica. Como posibles mejoras para futuras versiones se plantean:
+
+- Generación de casos prácticos dinámicos según la competencia seleccionada.
+- Personalización del rol de la Inteligencia Artificial para responder como un entrenador de la Universidad Corporativa Claro.
+- Persistencia de la información mediante una base de datos.
+- Implementación de autenticación de usuarios.
+- Exportación del historial de evaluaciones en formato PDF o Excel.
+- Panel administrativo para el seguimiento del desempeño de los aprendices.
+- Visualización de métricas y estadísticas avanzadas.
+
+---
+
+## Documentación
+
+La documentación del proyecto se encuentra en la carpeta **docs/**.
+
+- Arquitectura del sistema.
+- Decisiones técnicas tomadas durante el desarrollo.
+- Diario de desarrollo.
+- Propuestas de mejoras futuras.
+
+# Autor
+
+**Michael Rodriguez**
+
+Prueba Técnica - Overlap
+
+Desarrollado con:
+
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+- Google Gemini API
+
+---
+
+# Licencia
+
+Este proyecto fue desarrollado únicamente con fines académicos y de evaluación técnica.
