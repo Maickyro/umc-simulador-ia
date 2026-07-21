@@ -1,6 +1,6 @@
-# Simulador Inteligente de Evaluación de Competencias - Universidad Corporativa Claro
+# Simulador Inteligente de Evaluación de Competencias - Overlap
 
-Aplicación web desarrollada como prueba técnica para la Universidad Corporativa Claro.
+Aplicación web desarrollada como prueba técnica para la empresa Overlap.
 
 El proyecto permite registrar aprendices, asignar competencias y evaluar respuestas abiertas mediante Inteligencia Artificial utilizando Google Gemini.
 
@@ -168,7 +168,7 @@ La comunicación con Gemini se realiza mediante una API Route de Next.js para pr
 Durante el desarrollo se priorizó la implementación de los requisitos funcionales principales establecidos para la prueba técnica. Como posibles mejoras para futuras versiones se plantean:
 
 - Generación de casos prácticos dinámicos según la competencia seleccionada.
-- Personalización del rol de la Inteligencia Artificial para responder como un entrenador de la Universidad Corporativa Claro.
+- Personalización del rol de la Inteligencia Artificial para responder como un entrenador de la empresa Overlap.
 - Persistencia de la información mediante una base de datos.
 - Implementación de autenticación de usuarios.
 - Exportación del historial de evaluaciones en formato PDF o Excel.
